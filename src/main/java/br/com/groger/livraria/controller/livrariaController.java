@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class livrariaController {
@@ -23,4 +24,13 @@ public class livrariaController {
         service.cadastrarLivro(livro);
         return "index";
     }
+
+    @GetMapping("/livros")
+    public ModelAndView listarLivros(){
+        ModelAndView pagina = new ModelAndView("listarLivros");
+        Iterable<livrariaModel> livros = service.listarLivros();
+        pagina.addObject("livros", livros);
+        return pagina;
+    }
+
 }
