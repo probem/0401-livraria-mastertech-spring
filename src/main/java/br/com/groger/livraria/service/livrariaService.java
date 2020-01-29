@@ -5,6 +5,8 @@ import br.com.groger.livraria.repository.livrariaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class livrariaService {
     @Autowired
@@ -16,5 +18,10 @@ public class livrariaService {
 
     public Iterable<livrariaModel> listarLivros(){
         return repository.findAll();
+    }
+
+    public livrariaModel listarLivro(int id){
+        Optional<livrariaModel> livro = repository.findById(id);
+        return livro.get();
     }
 }

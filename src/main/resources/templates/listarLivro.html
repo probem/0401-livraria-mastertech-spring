@@ -5,9 +5,9 @@
     <title>Livros</title>
 </head>
 <body>
-<h1>Veja seus livros!</h1>
+<h1>Livro por id</h1>
 
-<div th:each="livro : ${livros}">
+<div>
     <div>
         <p><strong>Nome:</strong> <span th:text="${livro.nome}"></span></p>
         <p><strong>Autor:</strong> <span th:text="${livro.autor}"></span></p>
